@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
 
-function App() {
+export default function App() {
+
+  const [anime, setAnime] = useState(() => false)
+  const [stage2, setStage2] = useState(() => false)
+  const [stage3, setStage3] = useState(() => false)
+  const [check, setCheck] = useState(() => false)
+  const [final, setFinal] = useState(() => false)
+
+  function start() {
+    setAnime(true)
+    setTimeout(() => second(), 2000)
+  }
+
+  //timing in second is +2
+
+  function second() {
+    setStage2(true)
+    setTimeout(() => third(), 3000)
+  }
+
+  function third() {
+    setStage2(false)
+    setStage3(true)
+    setTimeout(() => setCheck(true), 2000)
+    setTimeout(() => finale(), 4000)
+  }
+
+  function finale() {
+    setCheck(false)
+    setAnime(false)
+    setStage2(false)
+    setStage3(false)
+    setFinal(true)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+    <div className={`father ${anime ? stage3 ? "expand third" : "expand" : ''} ${final ? "end" : ''}`} onClick={start}>
+      {anime || final ? '' : "Start"}
+      {stage2 && <div className={`child ${stage2 ? "second" : ""}`}></div>}
+      {check && "✔"}
+    </div>
+
+  )
+
+}
