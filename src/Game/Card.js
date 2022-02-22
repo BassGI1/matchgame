@@ -1,10 +1,18 @@
-import React from "react";
+import React, {useState} from "react";
 
 export default function Card(props) {
 
+    const [flipped, setFlipped] = useState(() => false)
+
+    const flip = () => {
+        if (props.flips.length < 2) {
+
+        }
+    }
+
     return (
 
-        <div className="flip-card">
+        <div className={`flip-card ${flipped ? "flip" : ''}`} >
             
             <div className="flip-card-inner">
 

@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import Card from "./Card.js";
 import Timer from "./Timer.js";
 
 export default function Game(props) {
 
     let food = ['apple', 'banana', 'blueberry', 'carrot', 'cherry', 'corn', 'cucumber', 'grape', 'lettuce', 'lime', 'orange', 'peach', 'pear', 'pineapple', 'raspberry', 'strawberry', 'tomato', 'watermelon', 'apple', 'banana', 'blueberry', 'carrot', 'cherry', 'corn', 'cucumber', 'grape', 'lettuce', 'lime', 'orange', 'peach', 'pear', 'pineapple', 'raspberry', 'strawberry', 'tomato', 'watermelon']
+    const [flipped, setFlipped] = useState(() => [])
+    const [arr, setArr] = useState(() => shuffle(food))
 
     function shuffle(array) {
 
@@ -26,11 +28,10 @@ export default function Game(props) {
 
         <div style={{display: "flex", width: "100vw", height: "100vh", justifyContent: "center"}}>
     
-            <div className="returnbutton" onClick={() => props.change('')}>return</div>
-            <Timer />
+            <Timer change={props.change} section={props.section} seconds={props.seconds} setSeconds={props.setSeconds} minutes={props.minutes} setMinutes={props.setMinutes}/>
             
             <div className="gamediv">
-                {shuffle(food).map(x => <Card food={x} key={x}/>)}
+                {arr.map((x, index) => <Card food={x} key={`x${JSON.stringify(index)}`} id={x} setFlip={setFlipped} flips={flipped}/>)}
             </div>
 
         </div>

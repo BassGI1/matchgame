@@ -2,27 +2,20 @@ import React, {useState, useEffect} from "react";
 
 export default function Timer(props) {
 
-    const [seconds, setSeconds] = useState(() => 0)
-    const [minutes, setMinutes] = useState(() => 0)
-
-    const time = () => {
-        setInterval(() => setSeconds(x => x + 1), 1000)
-    }
-
-    useEffect(() => time(), [])
     useEffect(() => {
-        if (seconds === 60) {
-            setMinutes(x => x + 1)
-            setSeconds(0)
+        if (props.seconds === 60) {
+            props.setMinutes(x => x + 1)
+            props.setSeconds(0)
         }
-    }, [seconds])
+    }, [props.seconds])
 
     return (
         
         <div className="timer">
+            <div className="returnbutton" onClick={() => props.change('return')}>return</div>
             <div className="topinfo">
                 Time
-                <h5 style={{marginTop: "-6vh", marginLeft: "0.5vw"}}>{minutes === 0 ? `${seconds} s` : `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`}</h5>
+                <h5 style={{marginTop: "-6vh", marginLeft: "0.5vw"}}>{props.minutes === 0 ? `${props.seconds} s` : `${props.minutes}:${props.seconds < 10 ? `0${props.seconds}` : props.seconds}`}</h5>
             </div>
             <div className="topinfo">
                 Score

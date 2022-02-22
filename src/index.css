@@ -196,7 +196,7 @@ body{
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
+.flip .flip-card-inner {
   transform: rotateY(180deg);
 }
 
@@ -255,11 +255,11 @@ body{
 
 .returnbutton{
   position: absolute;
-  left: 7vw;
-  top: 7vh;
   cursor: pointer;
   background-color: rgb(113, 221, 161);
   font-size: 2rem;
   padding: 2vh;
   border-radius: 2vh;
+  left: -20vw;
+  top: 6vh;
 }
