@@ -117,7 +117,14 @@ body{
   color: rgb(25, 110, 25);
   position: relative;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.titleanimation{
   animation: title 2s forwards cubic-bezier(1, 0, 0, 1);
+}
+
+.titlestatic{
+  transform: translate(-30vw, -30vh);
 }
 
 @keyframes title {
@@ -227,4 +234,32 @@ body{
   position: relative;
   align-self: flex-end;
   margin-bottom: 2vh;
+}
+
+.timer{
+  position: absolute;
+  display: flex;
+}
+
+.topinfo{
+  margin: 2vh 3vw;
+  height: 18vh;
+  width: 20vw;
+  background-color: rgb(113, 221, 161);
+  border-radius: 2vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.returnbutton{
+  position: absolute;
+  left: 7vw;
+  top: 7vh;
+  cursor: pointer;
+  background-color: rgb(113, 221, 161);
+  font-size: 2rem;
+  padding: 2vh;
+  border-radius: 2vh;
 }

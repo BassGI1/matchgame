@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./Card.js";
+import Timer from "./Timer.js";
 
 export default function Game(props) {
 
@@ -24,6 +25,9 @@ export default function Game(props) {
     return (
 
         <div style={{display: "flex", width: "100vw", height: "100vh", justifyContent: "center"}}>
+    
+            <div className="returnbutton" onClick={() => props.change('')}>return</div>
+            <Timer />
             
             <div className="gamediv">
                 {shuffle(food).map(x => <Card food={x} key={x}/>)}

@@ -11,12 +11,12 @@ export default function Menu(props) {
     return (
 
         <div>
-            {section === '' && <h1 className="title">Matches</h1>}
+            {section === '' && <h1 className={`title ${!appear ? "titleanimation" : 'titlestatic'}`}>Matches</h1>}
             {appear && section ==='' && <h6 className="starttext1" onClick={() => setSection('Game')}>Start Game</h6>}
             {appear && section ==='' && <h6 className="starttext2">Personal Best</h6>}
             {appear && section ==='' && <h6 className="starttext3">About</h6>}
             {appear && section ==='' && <img src={process.env.PUBLIC_URL + `/banner.png`} alt="uh oh" className="banner"/>}
-            {section === 'Game' && <Game />}
+            {section === 'Game' && <Game change={setSection}/>}
         </div>
 
     )
