@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Menu from "./Menu.js";
 
 export default function App() {
 
@@ -7,10 +8,13 @@ export default function App() {
   const [stage3, setStage3] = useState(() => false)
   const [check, setCheck] = useState(() => false)
   const [final, setFinal] = useState(() => false)
+  const [app, setApp] = useState(() => false)
 
   function start() {
-    setAnime(true)
-    setTimeout(() => second(), 2000)
+    if (!final){
+      setAnime(true)
+      setTimeout(() => second(), 2000)
+    }
   }
 
   //timing in second is +2
@@ -33,6 +37,7 @@ export default function App() {
     setStage2(false)
     setStage3(false)
     setFinal(true)
+    setTimeout(() => setApp(true), 2000)
   }
 
   return (
@@ -40,7 +45,8 @@ export default function App() {
     <div className={`father ${anime ? stage3 ? "expand third" : "expand" : ''} ${final ? "end" : ''}`} onClick={start}>
       {anime || final ? '' : "Start"}
       {stage2 && <div className={`child ${stage2 ? "second" : ""}`}></div>}
-      {check && "✔"}
+      {check && "Enjoy!"}
+      {app && <Menu />}
     </div>
 
   )
