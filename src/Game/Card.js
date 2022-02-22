@@ -12,7 +12,7 @@ export default function Card(props) {
 
     return (
 
-        <div className={`flip-card ${flipped ? "flip" : ''}`} >
+        <div className={`flip-card ${flipped ? "flip" : ''}`} onClick={() => setFlipped(true)}>
             
             <div className="flip-card-inner">
 

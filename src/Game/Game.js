@@ -31,7 +31,7 @@ export default function Game(props) {
             <Timer change={props.change} section={props.section} seconds={props.seconds} setSeconds={props.setSeconds} minutes={props.minutes} setMinutes={props.setMinutes}/>
             
             <div className="gamediv">
-                {arr.map((x, index) => <Card food={x} key={`x${JSON.stringify(index)}`} id={x} setFlip={setFlipped} flips={flipped}/>)}
+                {arr.map((x, index) => <Card food={x} key={`${x}${JSON.stringify(index)}`} id={`${x}${JSON.stringify(index)}`} setFlip={setFlipped} flips={flipped}/>)}
             </div>
 
         </div>
