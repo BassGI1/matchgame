@@ -2,8 +2,6 @@ import React, {useEffect, useState} from "react";
 
 export default function Timer(props) {
 
-    console.log(localStorage.getItem('score'))
-
     const [mins, setMins] = useState(() => 0)
     const [secs, setSecs] = useState(() => 0)
     const [load, setLoad] = useState(() => false)
@@ -32,6 +30,7 @@ export default function Timer(props) {
         props.setArr(shuffle(props.arr))
         props.setFlipArray([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
         props.setScore(0)
+        props.setWin(false)
     }
 
     function newGame() {
@@ -40,6 +39,7 @@ export default function Timer(props) {
         props.setMinutes(0)
         props.setSeconds(0)
         props.setScore(0)
+        props.setWin(false)
     }
 
     function shuffle(array) {
@@ -61,6 +61,7 @@ export default function Timer(props) {
     return (
         
         <div className="timer">
+            {props.win && <div className="windivouter"></div>}
             <div className="returnbutton" onClick={ret}>Quit</div>
             <div className="topinfo">
                 Time

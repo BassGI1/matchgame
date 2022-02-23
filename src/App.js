@@ -16,10 +16,17 @@ export default function App() {
   const [app, setApp] = useState(() => false)
   const [renderGame, setRenderGame] = useState(() => false)
   const [score, setScore] = useState(0)
+  const [win, setWin] = useState(() => false)
 
   useEffect(() => {
     localStorage.setItem('score', 'no runs yet')
   }, [])
+
+  useEffect(() => {
+    if (!flipArray.includes(false)){
+      setWin(true)
+    }
+  }, [flipArray])
 
   function shuffle(array) {
 
@@ -73,8 +80,8 @@ export default function App() {
       {anime || final ? '' : "Start"}
       {stage2 && <div className={`child ${stage2 ? "second" : ""}`}></div>}
       {check && "Enjoy!"}
-      {app && <Menu score={score} setScore={setScore} setGame={setRenderGame} setArr={setArr} arr={arr} setFlipArray={setFlipArray} flipArray={flipArray}/>}
-      {renderGame && <Game score={score} setScore={setScore} food={food} flipArray={flipArray} setFlipArray={setFlipArray} arr={arr} currentFlips={currentFlips} setCurrentFlips={setCurrentFlips}/>}
+      {app && <Menu win={win} setWin={setWin} score={score} setScore={setScore} setGame={setRenderGame} setArr={setArr} arr={arr} setFlipArray={setFlipArray} flipArray={flipArray}/>}
+      {renderGame && <Game win={win} score={score} setScore={setScore} food={food} flipArray={flipArray} setFlipArray={setFlipArray} arr={arr} currentFlips={currentFlips} setCurrentFlips={setCurrentFlips}/>}
     </div>
 
   )
