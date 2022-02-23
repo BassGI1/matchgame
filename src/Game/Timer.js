@@ -12,8 +12,8 @@ export default function Timer(props) {
         setSecs(props.seconds)
         setLoad(true)
         props.setScore(x => x + props.seconds + props.minutes*60)
-        if ((localStorage.getItem('bassamscore') === 'no runs yet') || (parseInt(localStorage.getItem('bassamscore')) >= props.score)){
-            localStorage.setItem('bassamscore', JSON.stringify(props.score + props.seconds + props.minutes*60))
+        if ((localStorage.getItem('score') === 'no runs yet') || (parseInt(localStorage.getItem('score')) >= props.score)){
+            localStorage.setItem('score', JSON.stringify(props.score + props.seconds + props.minutes*60))
         }
     }
 

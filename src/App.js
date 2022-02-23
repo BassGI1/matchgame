@@ -19,8 +19,8 @@ export default function App() {
   const [win, setWin] = useState(() => false)
 
   useEffect(() => {
-    if (localStorage.getItem('bassamscore' === null)){
-      localStorage.setItem('bassamscore', 'no runs yet')
+    if (localStorage.length === 0){
+      localStorage.setItem('score', 'no runs yet')
     }
   }, [])
 

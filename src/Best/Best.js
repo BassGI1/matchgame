@@ -6,7 +6,7 @@ export default function Best(props) {
 
         <div className="bestdiv">
             <div className="insidebest">
-                Personal Best Score: {localStorage.getItem('bassamscore')}
+                Personal Best Score: {localStorage.getItem('score')}
                 <div style={{position: "absolute", bottom: "3vh", cursor: "pointer"}}  onClick={() => props.setSection('return')}>return</div>
             </div>
         </div>
