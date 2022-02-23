@@ -292,3 +292,27 @@ body{
   background-color: rgba(129, 224, 100, 0.603);
   border-radius: 3vh;
 }
+
+.bestdiv{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-image: url(../public/bestbanner.png);
+  background-size: 100vw 99vh;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.insidebest{
+  width: 50vw;
+  height: 50vh;
+  background-color: rgb(113, 221, 161);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3vh;
+  border: 3px green solid;
+  position: relative;
+}
