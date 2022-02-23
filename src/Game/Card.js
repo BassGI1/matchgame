@@ -3,11 +3,33 @@ import React from "react";
 export default function Card(props) {
 
     function flip() {
-        props.setFlipArray(x => {
+        props.setCurrentFlips(x => {
             let temp = [...x]
-            temp[props.index] = !temp[props.index]
+            temp.push(props.id)
             return temp
         })
+
+        if (props.currentFlips.length < 2){
+            props.setFlipArray(x => {
+                let temp = [...x]
+                temp[props.index] = !temp[props.index]
+                return temp
+            })
+        }
+
+        if ((props.currentFlips.length > 1) && (props.currentFlips[0].substring(JSON.stringify(parseInt(props.currentFlips[0])).length) === props.currentFlips[1].substring(JSON.stringify(parseInt(props.currentFlips[1])).length))){
+            props.setCurrentFlips([])
+        }
+
+        if ((props.currentFlips.length === 2) && (props.currentFlips[0].substring(JSON.stringify(parseInt(props.currentFlips[0])).length) !== props.currentFlips[1].substring(JSON.stringify(parseInt(props.currentFlips[1])).length))){
+            props.setFlipArray(x => {
+                let temp = [...x]
+                temp[parseInt(props.currentFlips[0])] = false
+                temp[parseInt(props.currentFlips[1])] = false
+                return temp
+            })
+            props.setCurrentFlips([])
+        }
     }
 
     return (

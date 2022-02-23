@@ -4,6 +4,10 @@ import Game from "./Game/Game.js";
 
 export default function App() {
 
+  let food = ['apple', 'banana', 'blueberry', 'carrot', 'cherry', 'corn', 'cucumber', 'grape', 'lettuce', 'lime', 'orange', 'peach', 'pear', 'pineapple', 'raspberry', 'strawberry', 'tomato', 'watermelon', 'apple', 'banana', 'blueberry', 'carrot', 'cherry', 'corn', 'cucumber', 'grape', 'lettuce', 'lime', 'orange', 'peach', 'pear', 'pineapple', 'raspberry', 'strawberry', 'tomato', 'watermelon']
+  const [flipArray, setFlipArray] = useState([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false])
+  const [arr, setArr] = useState(() => shuffle(food))
+  const [currentFlips, setCurrentFlips] = useState(() => [])
   const [anime, setAnime] = useState(() => false)
   const [stage2, setStage2] = useState(() => false)
   const [stage3, setStage3] = useState(() => false)
@@ -11,6 +15,22 @@ export default function App() {
   const [final, setFinal] = useState(() => false)
   const [app, setApp] = useState(() => false)
   const [renderGame, setRenderGame] = useState(() => false)
+
+  function shuffle(array) {
+
+    var m = array.length, t, i;
+
+    while (m) {
+
+      i = Math.floor(Math.random() * m--);
+  
+      t = array[m];
+      array[m] = array[i];
+      array[i] = t;
+    }
+  
+    return array;
+  }  
 
   function start() {
     if (!final){
@@ -48,8 +68,8 @@ export default function App() {
       {anime || final ? '' : "Start"}
       {stage2 && <div className={`child ${stage2 ? "second" : ""}`}></div>}
       {check && "Enjoy!"}
-      {app && <Menu setGame={setRenderGame}/>}
-      {renderGame && <Game/>}
+      {app && <Menu setGame={setRenderGame} setArr={setArr} arr={arr} setFlipArray={setFlipArray}/>}
+      {renderGame && <Game food={food} flipArray={flipArray} setFlipArray={setFlipArray} arr={arr} currentFlips={currentFlips} setCurrentFlips={setCurrentFlips}/>}
     </div>
 
   )

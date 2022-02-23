@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import Game from "./Game/Game.js";
 import Timer from "./Game/Timer.js";
 
 export default function Menu(props) {
@@ -38,7 +37,7 @@ export default function Menu(props) {
             {appear && (section === '' || section === 'return') && <h6 className="starttext2">Personal Best</h6>}
             {appear && (section === '' || section === 'return') && <h6 className="starttext3">About</h6>}
             {appear && (section === '' || section === 'return') && <img src={process.env.PUBLIC_URL + `/banner.png`} alt="uh oh" className="banner"/>}
-            {section === 'Game' && <Timer change={setSection} minutes={minutes} setMinutes={setMinutes} seconds={seconds} setSeconds={setSeconds} retur={props.setGame}/>}
+            {section === 'Game' && <Timer setFlipArray={props.setFlipArray} arr={props.arr} setArr={props.setArr} change={setSection} minutes={minutes} setMinutes={setMinutes} seconds={seconds} setSeconds={setSeconds} retur={props.setGame}/>}
         </div>
 
     )

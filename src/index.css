@@ -265,3 +265,14 @@ body{
   left: -20vw;
   top: 6vh;
 }
+
+.newbutton{
+  position: absolute;
+  cursor: pointer;
+  background-color: rgb(113, 221, 161);
+  font-size: 2rem;
+  padding: 2vh;
+  border-radius: 2vh;
+  right: -20vw;
+  top: 6vh;
+}
