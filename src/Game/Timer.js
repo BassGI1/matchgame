@@ -9,10 +9,15 @@ export default function Timer(props) {
         }
     }, [props])
 
+    function ret() {
+        props.change('return')
+        props.retur(false)
+    }
+
     return (
         
         <div className="timer">
-            <div className="returnbutton" onClick={() => props.change('return')}>quit</div>
+            <div className="returnbutton" onClick={ret}>quit</div>
             <div className="topinfo">
                 Time
                 <h5 style={{marginTop: "-6vh", marginLeft: "0.5vw"}}>{props.minutes === 0 ? `${props.seconds} s` : `${props.minutes}:${props.seconds < 10 ? `0${props.seconds}` : props.seconds}`}</h5>

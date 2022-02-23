@@ -239,6 +239,8 @@ body{
 .timer{
   position: absolute;
   display: flex;
+  left: 25vw;
+  top: 0vh;
 }
 
 .topinfo{

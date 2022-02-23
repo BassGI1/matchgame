@@ -1,18 +1,18 @@
-import React, {useState} from "react";
+import React from "react";
 
 export default function Card(props) {
 
-    const [flipped, setFlipped] = useState(() => false)
-
-    const flip = () => {
-        if (props.flips.length < 2) {
-
-        }
+    function flip() {
+        props.setFlipArray(x => {
+            let temp = [...x]
+            temp[props.index] = !temp[props.index]
+            return temp
+        })
     }
 
     return (
 
-        <div className={`flip-card ${flipped ? "flip" : ''}`} onClick={() => setFlipped(true)}>
+        <div className={`flip-card ${props.flipArray[props.index] ? "flip" : ''}`} onClick={flip}>
             
             <div className="flip-card-inner">
 

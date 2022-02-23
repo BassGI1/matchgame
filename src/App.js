@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Menu from "./Menu.js";
+import Game from "./Game/Game.js";
 
 export default function App() {
 
@@ -9,6 +10,7 @@ export default function App() {
   const [check, setCheck] = useState(() => false)
   const [final, setFinal] = useState(() => false)
   const [app, setApp] = useState(() => false)
+  const [renderGame, setRenderGame] = useState(() => false)
 
   function start() {
     if (!final){
@@ -46,7 +48,8 @@ export default function App() {
       {anime || final ? '' : "Start"}
       {stage2 && <div className={`child ${stage2 ? "second" : ""}`}></div>}
       {check && "Enjoy!"}
-      {app && <Menu />}
+      {app && <Menu setGame={setRenderGame}/>}
+      {renderGame && <Game/>}
     </div>
 
   )
