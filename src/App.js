@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Menu from "./Menu.js";
 import Game from "./Game/Game.js";
 
@@ -15,6 +15,11 @@ export default function App() {
   const [final, setFinal] = useState(() => false)
   const [app, setApp] = useState(() => false)
   const [renderGame, setRenderGame] = useState(() => false)
+  const [score, setScore] = useState(0)
+
+  useEffect(() => {
+    localStorage.setItem('score', 'no runs yet')
+  }, [])
 
   function shuffle(array) {
 
@@ -68,8 +73,8 @@ export default function App() {
       {anime || final ? '' : "Start"}
       {stage2 && <div className={`child ${stage2 ? "second" : ""}`}></div>}
       {check && "Enjoy!"}
-      {app && <Menu setGame={setRenderGame} setArr={setArr} arr={arr} setFlipArray={setFlipArray}/>}
-      {renderGame && <Game food={food} flipArray={flipArray} setFlipArray={setFlipArray} arr={arr} currentFlips={currentFlips} setCurrentFlips={setCurrentFlips}/>}
+      {app && <Menu score={score} setScore={setScore} setGame={setRenderGame} setArr={setArr} arr={arr} setFlipArray={setFlipArray} flipArray={flipArray}/>}
+      {renderGame && <Game score={score} setScore={setScore} food={food} flipArray={flipArray} setFlipArray={setFlipArray} arr={arr} currentFlips={currentFlips} setCurrentFlips={setCurrentFlips}/>}
     </div>
 
   )

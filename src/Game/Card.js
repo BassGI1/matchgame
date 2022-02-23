@@ -3,6 +3,7 @@ import React from "react";
 export default function Card(props) {
 
     function flip() {
+        props.setScore(x => x + 1)
         props.setCurrentFlips(x => {
             let temp = [...x]
             temp.push(props.id)
