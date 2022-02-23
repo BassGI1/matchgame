@@ -113,7 +113,7 @@ body{
 
 .title{
   font-family: 'Akaya Telivigala', cursive;
-  font-size: 8rem;
+  font-size: 6rem;
   color: rgb(25, 110, 25);
   position: relative;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -124,12 +124,12 @@ body{
 }
 
 .titlestatic{
-  transform: translate(-30vw, -30vh);
+  transform: translate(-25vw, -30vh);
 }
 
 @keyframes title {
   100% {
-    transform: translate(-30vw, -30vh);
+    transform: translate(-25vw, -30vh);
   }
 }
 
@@ -148,7 +148,7 @@ body{
   font-size: 4rem;
   position: absolute;
   cursor: pointer;
-  transform: translate(-30vw, -23vh);
+  transform: translate(-25vw, -23vh);
 }
 
 .starttext2{
@@ -158,7 +158,7 @@ body{
   font-size: 4rem;
   position: absolute;
   cursor: pointer;
-  transform: translate(-30vw, -10vh);
+  transform: translate(-25vw, -10vh);
 }
 
 .starttext3{
@@ -168,14 +168,14 @@ body{
   font-size: 4rem;
   position: absolute;
   cursor: pointer;
-  transform: translate(-30vw, 3vh);
+  transform: translate(-25vw, 3vh);
 }
 
 .banner{
   height: 100vh;
   width: 110vh;
   position: absolute;
-  transform: translate(10vw, -60vh);
+  transform: translate(20vw, -60vh);
 }
 
 .flip-card{
