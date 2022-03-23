@@ -34,7 +34,7 @@ export default function Menu(props) {
     return (
 
         <div>
-            {(section === '' || section === 'return') && <h1 className={`title ${!appear ? "titleanimation" : 'titlestatic'}`}>Apples to Apples</h1>}
+            {(section === '' || section === 'return') && <h1 className={`title ${!appear ? "titleanimation" : 'titlestatic'}`}>Apples to Oranges</h1>}
             {appear && (section === '' || section === 'return') && <h6 className="starttext1" onClick={gameFunc}>Start Game</h6>}
             {appear && (section === '' || section === 'return') && <h6 className="starttext2" onClick={() => setSection('Best')}>Personal Best</h6>}
             {appear && (section === '' || section === 'return') && <h6 className="starttext3" onClick={() => setSection('About')}>About</h6>}
